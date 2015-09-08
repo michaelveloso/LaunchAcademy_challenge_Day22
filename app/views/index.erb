@@ -1,0 +1,16 @@
+<h1><%= @title %></h1>
+
+<ul>
+  <% @meetups.each do |meetup| %>
+    <li><a href="/meetup?id=<%= meetup.id %>"><%= meetup.name %></a></li>
+  <% end %>
+</ul>
+
+
+<span>Make a new meetup!</span>
+<form action="/create" method="post">
+  <input type="text" name="meetup[name]" placeholder="Meetup Name" required>
+  <input type="text" name="meetup[description]" placeholder="Description" required>
+  <input type="text" name="meetup[location]" placeholder="Location" required>
+  <input type="submit" value="Submit">
+</form>
